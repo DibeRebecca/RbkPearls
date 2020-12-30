@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body%}
+            <h2 class="text-center">Nous contacter</h2>
+            <div class="container">
+            <form class="form-group"  style="width:700px; margin-left:20%;">
+                        <div id="contactform" >
+                        {{form_start(form)}}
+                        <div class="row">
+                        <div class="col">{{form_row(form.firstname)}}</div>
+                        
+                        <div class="col">{{form_row(form.lastname)}}</div>
+                        </div>
+                        <div class="row">
+                         <div class="col">{{form_row(form.phone)}}</div>
+                         <div class="col">{{form_row(form.email)}}</div>
+                        </div>
+                        {{form_rest(form)}}
+                        <button class="btn btn-primary" style="margin-left:40%; width:150px;">Envoyer</button>
+                        {{form_end(form)}}
+
+                        </div>
+                        </form>
+    </div>
+{% endblock %}

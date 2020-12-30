@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="{{asset('images/f8a330995c877da1ecfbc4c0b1228dac.jpg')}}" class="d-block w-100" alt="..." height="600px">
+    </div>
+    <div class="carousel-item">
+      <img src="{{asset('images/unnamed.jpg')}}" class="d-block w-100" alt="..." height="600px">
+    </div>
+    <div class="carousel-item">
+      <img src="{{asset('images/woman-918787_1920.jpg')}}" class="d-block w-100" alt="..." height="600px">
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+        <div class="col-6 col-2-offset">
+        {{form_start(form) }}
+            
+        {{form_row(form.maxprix)}}
+        </div>
+        <div class="col-2">
+        <button class="btn btn-info">Rechercher</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+<br>
+<div class="container-fluid">
+<div class="row">
+  {% for bijou in bijoux %}
+		<div class="col-sm-3">
+			<div class= " card text-black  mb-3" style="max-width: 16rem;">
+
+				<img class="card-img-top" src="{{asset('images2/'~bijou.image)}}">
+				<div class="card-body">
+					<h5 class="card-title">{{ bijou.libelle }}</h5>
+					<p class="card-text">realisé en perles , diablonnese et pierres precieuses</p>
+          <p></p>
+					<a href="{{path('collier', {'id' : bijou.id })}}" class="btn btn-primary" style="margin-left:60px;">Acheter</a>
+				</div>
+			</div>
+		</div>
+    
+    {% endfor %}
+  
+
+	</div>
+</br>
+<div class="pagination mt-4">
+          {{ knp_pagination_render(bijoux) }}
+          </div>
+</br>
+
+	</div>
+
+
+  {% endblock %}

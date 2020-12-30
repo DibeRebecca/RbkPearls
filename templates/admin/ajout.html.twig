@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+{% block body%}
+<style type="text/css">input{width: 100%;}</style>
+
+<h1 style=" margin-left: 20%;float:left;margin-bottom: 30px;">Ajout d'un  bijou</h1>
+
+<div style=" margin-right: 5%;margin-left: 20%;clear:both;margin-top: 15px">
+<a href="liste">Liste</a>
+<span class="breadcrumb-item active"> / Ajout</span>
+</div>
+
+<div style="width:70%;margin-left:20%;clear:both;">
+<div class="card card-primary">
+<div class="card-header">
+<h3 class="card-title">Formulaire</h3>
+<a href="{{path('liste2')}}" style="float: right;"><button style="width: 200px;background-color:#fff;border-radius:10px;">Liste</button></a>
+</div>
+</div>
+<div id="quickForm">
+<div class="card-body" style="width:100%;" >
+<div class="form-group">
+ 	{{form_start(bijoux)}}
+ 	{{form_row(bijoux.libelle)}}
+	 {{form_row(bijoux.prix)}}
+ 	{{form_row(bijoux.categorie)}}
+ 	
+  {{form_row(bijoux.image)}}
+  {{form_row(bijoux.quantite)}}
+  {{form_row(bijoux.description)}}
+  {{form_row(bijoux.etat)}}
+  
+
+ 	<button class="btn btn-lg btn-primary" style=" width:250px; margin-top:15px;margin-left:30%;">Ajouter</button>
+ 	{{form_end(bijoux)}}
+  </div>
+  </div>
+  </div>
+
+{% endblock %}

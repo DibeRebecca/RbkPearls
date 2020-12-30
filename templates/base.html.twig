@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}RbkPearls{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{asset('font-css/all.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="{{asset('js/jquery.min.js')}}"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+        });
+        </script>
+
+        <script src="{{asset('js/main.js')}}"></script>
+
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.css')}}">
+    </head>
+   <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 bg-secondary text-white text-center mb-auto mt-auto">
+        <p>livraison à domicile</p>
+      </div>
+    </div>
+
+     <div class="row " style="background:#BD897E; height: 100px;">
+       <div class="col-md-2   mt-auto mb-auto">
+         <img src="{{asset('images/rbk1.jpg')}}"px;ass="img-circle" style="height: 60 px; width: 60px;">
+       </div>
+       <div class="col-md-2 mb-auto mt-auto  text-white">
+         <form>
+           <input type="text" name="" placeholder="Rechercher" class="form-control" style="border-radius: 20px;">
+         </form>
+
+       </div>
+       <div class="col-md-6  mt-auto mb-auto ">
+          <a href="https://facebook.com/coding.np"  ><span class="fab fa-facebook-f" style="font-size: 1.4375rem;background: #E5E1DC;height: 45px;width: 45px;line-height: 45px;text-align: center;border-radius: 50%;transition: 0.3s;cursor: pointer; "></span></a>
+              <a href="#"><span style="font-size: 1.4375rem; background: #E5E1DC; height: 45px;width: 45px;line-height: 45px;text-align: center;border-radius: 50%;transition: 0.3s;cursor: pointer;"class="fab fa-twitter"></span></a>
+              <a href="https://instagram.com/coding.np"><span class="fas fa-shopping-cart" style="font-size: 1.4375rem;background: #E5E1DC;height: 45px; width: 45px; line-height: 45px;text-align: center; border-radius: 50%;transition: 0.3s;cursor: pointer;" ></span></a>
+              <a href="https://youtube.com/c/codingnepal"><span style="font-size: 1.4375rem;background: #E5E1DC;height: 45px;width: 45px;line-height: 45px;text-align: center;border-radius: 50%;transition: 0.3s;cursor: pointer;"  class="fas fa-user"></span></a>
+       </div>
+       <div class="col-md-2 mt-auto mb-auto ">
+
+         <span  style="font-size: 1.4375rem;background: #E5E1DC;height: 45px;width: 45px;line-height: 45px;text-align: center;border-radius: 50%;transition: 0.3s;cursor: pointer;" class="fas fa-user" id="bt"></span>
+          <div class="yes" id="">
+            <ul class="nav flex-column bg-secondary text-white text-center  " style="width: 75%; height: 70%;">
+              <li class="nav-item"><a href="{{path('fos_user_registration_register')}}" class="nav-link text-white">S'inscrire</a> </li>
+              <li class="nav-item"><a href="{{path('fos_user_security_login')}}" class="nav-link text-white">Se connecter</a></li>
+              <li class="nav-item"> <a href="#" class="nav-link"></a></li>
+            </ul>
+          </div>
+        </div>
+     </div>
+
+         <nav class="nav navbar navbar-expand-sm sticky-top navbar-light bg-light ">
+           <button type="button" class="navbar-toggler" data-target="#collapse_target" data-toggle="collapse" name="button" aria-controls="collapse_target" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapse_target">
+              <a href="#" class="navbar-brand"> <img class="img-circle" src="{{asset('images/rbk1.jpg')}}" width="50px" alt=""> </a>
+			 <ul class="nav nav-tabs   " id="myTab" role="tablist" style="width:100%;" >
+  <li class="nav-item " role="presentation" style="margin-left: 5%;">
+    <a class="nav-link active text-warning" id="femmes-tab" data-toggle="tab" href="#femmes" role="tab" aria-controls="home" aria-selected="true">Femme</a>
+  </li>
+   <li class="nav-item  " role="presentation" style="margin-left: 5%;">
+    <a class="nav-link text-warning " id="hommes-tab" data-toggle="tab" href="#hommes" role="tab" aria-controls="home" aria-selected="true">Homme</a>
+  </li>
+   <li class="nav-item  " role="presentation" style="margin-left: 5%;">
+    <a class="nav-link text-warning  " id="sacs-tab" data-toggle="tab" href="#sacs" role="tab" aria-controls="home" aria-selected="true">Sacs</a>
+  </li>
+  <li class="nav-item " role="presentation" style="margin-left: 5%;">
+    <a class="nav-link text-warning " id="colliers-tab" data-toggle="tab" href="#colliers" role="tab" aria-controls="profile" aria-selected="false">Colliers</a>
+  </li>
+  <li class="nav-item  " role="presentation" style="margin-left: 5%;">
+    <a class="nav-link text-warning " id="bracelets-tab" data-toggle="tab" href="#bracelets" role="tab" aria-controls="contact" aria-selected="false">Bracelets</a>
+  </li>
+</ul>
+
+{% if is_granted('ROLE_ADMIN') %}
+<div class="dropdown">
+      <a class="btn btn-info dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a  class="dropdown-item" href="{{path('liste2')}}">Liste</a>
+      <a class="dropdown-item" href="{{path('ajouter')}}">Ajouter un bijou</a>
+    </div>
+</div>
+      <a href="{{path('fos_user_security_logout')}}" class="btn btn-danger">Se déconnecter</a>
+
+<script type="text/javascript">
+  $('.yes').hide();
+</script>
+{%endif%}
+
+{% if is_granted('ROLE_USER') %}
+
+<a href="{{path('fos_user_security_logout')}}" class="btn btn-danger" style="margin-left: 10px;margin-right: 10px;"  >Se déconnecter</a>
+<script type="text/javascript">
+   $('.yes').hide();
+</script>
+{%endif%}
+
+</nav>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade " id="femmes" role="tabpanel" aria-labelledby="femmes-tab">femmes</div>
+  <div class="tab-pane fade " id="hommes" role="tabpanel" aria-labelledby="hommes-tab">hommes</div>
+  <div class="tab-pane fade " id="colliers" role="tabpanel" aria-labelledby="sacs-tab">Colliers</div>
+  <div class="tab-pane fade" id="sacs" role="tabpanel" aria-labelledby="colliers-tab">Sacs</div>
+  <div class="tab-pane fade" id="bracelets" role="tabpanel" aria-labelledby="bracelets-tab">Bracelets</div>
+</div>
+
+    {% block body %}
+    {% endblock %}
+
+
+
+
+
+  {% block footer %}
+ <div class="footer">
+    <div class="content1">
+      <div class="text">
+RbkPearls; Embellissez vous avec les perles.</div>
+<div class="p">
+La beauté à votre portée</div>
+</div>
+<footer>
+      <div class="main-content">
+        <div class="left box">
+          <h2>
+A Propos</h2>
+<div class="content">
+            <p>
+RbkPearls est une startup spécialisée dans la fabrication et la vente des bijoux , colliers, bracelets , chaussures, boucles d'oreilles fait en perles .</p>
+<div class="social">
+              <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
+              <a href="#"><span class="fab fa-twitter"></span></a>
+              <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
+              <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
+            </div>
+</div>
+</div>
+<div class="center box">
+          <h2>
+Adresse</h2>
+<div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Lomé,Togo</span>
+            </div>
+<div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">+22897864437</span>
+            </div>
+<div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">rbkpearls@gmail.com</span>
+            </div>
+</div>
+</div>
+<div class="right box">
+          <h2>
+Nous Contacter</h2>
+<div class="content">
+            <form action="#">
+              <div class="email">
+                <div class="text">
+Email *</div>
+<input type="email" required>
+              </div>
+<div class="msg">
+                <div class="text">
+Message *</div>
+ <!--NOTE: Due to more textarea tag I got an error. So I changed the textarea name to changeit. Please change that changeit name to textarea -->
+<changeit id=".msgForm" rows="2" cols="25" required></changeit> <!-- replace this changeit name to textarea -->
+
+              <br />
+<div class="btn">
+<button class=" btn btn-danger" type="submit">Envoyer</button>
+              </div>
+<div class="bottom">
+<center>
+          <span class="credit">Produit par <a href="https://youtube.com/c/codingnepal">RbkDev&Design</a> | </span>
+          <span class="far fa-copyright"></span> 2020 Tous droits reservés.
+        </center>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+  $('.yes').hide();
+  $('#bt').click(function () {
+    $('.yes').fadeToggle(500);
+  })
+</script>
+    {% endblock %}
+
+
+
+
+</html>

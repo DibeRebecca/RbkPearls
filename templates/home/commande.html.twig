@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}!{% endblock %}
+
+{% block body %}
+</br>
+<body>
+
+<div id="quickForm">
+<div class="card-body" >
+<h2>Passer une Commande</h2>
+<div class="form-group">
+{{form_start(commande)}}
+{{form_row(commande.dateCommande)}}
+{{form_row(commande.codeCommande)}}
+{{form_row(commande.nomsClient)}}
+</br>
+{{form_row(commande.bijoux)}}
+
+<button type="submit" class="btn btn1" >Envoyer</button>
+
+</body>
+</div>
+</div>
+</div>
+</div>
+{{form_end(commande)}}
+<style>
+body{
+font-size:20px;
+}
+input{
+width:100%;
+}
+.btn1{
+width:250px;
+background-color:#38d39f;
+margin-top:10px;
+color:#fff;
+font-size:20px;
+border-radius:20px;
+}
+.gauche{
+	font-size:22px;
+}
+
+
+#quickForm{
+width:50%;
+margin-right:auto;
+margin-left:auto;
+}
+</style>
+{% endblock %}

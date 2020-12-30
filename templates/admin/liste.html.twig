@@ -1,0 +1,67 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+</br>
+</br>
+{% for message in app.flashes('success') %}
+<div class="alert alert-success"> {{message}}</div>
+{% endfor %}
+<div class="row" style="margin-left:20%;margin-right:5%">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Liste des bijoux dsponibles</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 250px;">
+                  <a href="{{path('ajouter')}}" style="margin-right:10%" ><button class="btn btn-primary">Ajouter</button></a>
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Libelle</th>
+                      <th>Catehorie</th>
+                      <th>Prix</th>
+                      <th>Images</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  {% for bijou in bijoux %}
+                  <tbody>
+                    <tr>
+                      <td>{{bijou.id}}</td>
+                      <td>{{bijou.libelle}}</td>
+                      <td>{{bijou.categorie}}</td>
+                      <td>{{bijou.prix}}</td>
+                      <td><img class="img-fluid rounded" width="100" height="100" src="{{asset('images2/'~bijou.image)}}"></td>
+
+
+                      <td>
+                      <a href="{{path('editer',{'id' : bijou.id })}}"> <button class="btn btn-warning">modifier</button></a>
+                    	<form _method="post" action="{{path('delete',{'id' : bijou.id })}}" style=" display:inline-block; onsubmit="return confirm("etes vous sur?")"">
+  <input type="hidden" name="_method" value="delete"/>
+  <input type="hidden" name="_token" value="{{csrf_token('delete'~bijou.id) }}"/>
+  <button class="btn btn-danger">Supprimer<button/>
+  </form>                </td> </tr>
+
+                    {% endfor %}
+
+
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+{% endblock %}
